@@ -1,17 +1,30 @@
 <template>
   <v-container>
-    <v-row>
+    <!-- loading -->
+    <v-row v-if="loading" justify="center" class="py-12">
+      <v-progress-circular indeterminate color="#c8a562" size="48" />
+    </v-row>
+
+    <!-- error -->
+    <v-row v-else-if="error" justify="center" class="py-8">
+      <div class="text-center">
+        <div class="mb-3">ບໍ່ສາມາດໂຫຼດຮູບພາບໄດ້</div>
+        <v-btn outlined class="show_more_btn" @click="fetchImages">ລອງໃໝ່</v-btn>
+      </div>
+    </v-row>
+
+    <v-row v-else>
       <v-col
         v-for="(item, i) in visibleImages"
-        :key="i"
+        :key="item.id"
         class="d-flex child-flex"
         cols="6"
         sm="4"
       >
         <v-img
-          :src="item.src"
-          :lazy-src="tiny(item.src)"
-          :alt="item.alt + ' ' + (i + 1)"
+          :src="item.thumbnail"
+          :lazy-src="tiny(item.thumbnail)"
+          :alt="item.name"
           aspect-ratio="1"
           class="grey lighten-2 gallery_thumb"
           @click.native="open(i)"
@@ -28,7 +41,7 @@
       </v-col>
     </v-row>
 
-    <v-row v-if="images.length > step" justify="center" class="mt-6 mb-2">
+    <v-row v-if="!loading && !error && images.length > step" justify="center" class="mt-6 mb-2">
       <v-btn
         outlined
         large
@@ -68,8 +81,8 @@
         <img
           v-if="current"
           :key="index"
-          :src="full(current.src)"
-          :alt="current.alt"
+          :src="current.url"
+          :alt="current.name"
           class="lightbox_image"
         />
 
@@ -90,78 +103,19 @@
 </template>
 
 <script>
+// Google Apps Script -> รายการรูปจาก Google Drive
+const GALLERY_API =
+  "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnRRDuZTQPEBvsUw_-z1csA_noBMciwu2_8WKGJWIT0FCeMpYhaqd6q2F3g8mJLvrMsR_2BHRZQW310QtxTelnWjFcbkkPLnW9gmxeY3bidwHW8gbGDZG6YfCsyDoTZmThEmHNzZ03eqQMh9qDLI-hnd7KXG9gn867ikW33Tyo6zBCpqDzZt28BKULIW7LfAj4Xext_OI4DHjDDXh5UOcO2qn0JpAuyvnwNAXbYkfNK4TiMK1yvSXcA53J-WXvbgr03zC01hTCnkRqvZ0BSmTdxxEIYBNQ&lib=MNkjABtIcSETLRPeV4zTlcOJ3fRlXzQz9";
+
 export default {
   data() {
     return {
       viewer: false,
       index: 0,
       pages: 1,
-      images: [
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867162063376474/SM701742.jpg?backend=b2&ex=6ac5b908&is=6ac46788&hm=e0b4dc581c70e77f10e10360f41625e60f5ee339090b1b74efb70e5ed4adbeca&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867163887767592/SM701737.jpg?backend=b2&ex=6ac5b909&is=6ac46789&hm=e39fe60fb77a63b75a01fded9d097dc6de348710d9694f984a7b61d3181241e0&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867165326417961/SM701734.jpg?backend=b2&ex=6ac5b909&is=6ac46789&hm=f70ae62aad1252d70000a7e9a6bdaabfd045a1b9227fc880d58d4fc617dc3b58&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867166379180032/SM701735.jpg?backend=b2&ex=6ac5b909&is=6ac46789&hm=285c54e6a955e7df7e8630e01a2b61b582f975283747c3b16f07e8bdc3326f18&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867167381889074/SM701732.jpg?backend=b2&ex=6ac5b909&is=6ac46789&hm=3fa3d0a59f120022523ca24383021d079f3755a36525a38f2e2c5406daeb71a9&=&format=webp&width=1280&height=853",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867168644108368/SM701767.jpg?backend=b2&ex=6ac5b90a&is=6ac4678a&hm=2eb9a5c34c1b6fffb675541364da3a0029a33dbec212c060f04fc27dbe9a2909&=&format=webp&width=1280&height=853",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867169680228512/SM701765.jpg?backend=b2&ex=6ac5b90a&is=6ac4678a&hm=464d40dc2e22c40fec8edd8db905686e97d89bf905f600afb2e45cd86e0fff17&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867170728935465/SM701758.jpg?backend=b2&ex=6ac5b90a&is=6ac4678a&hm=ba007eeaa984e12e7595ec58b0105c8ee63be0a6a1ba1accf2b0a85e75cd0843&=&format=webp&width=1280&height=853",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867171676852345/SM701749.jpg?backend=b2&ex=6ac5b90a&is=6ac4678a&hm=7ee44c22c4501eee42ee7836bc46511bf1761186b04a513482939ae7659da5d5&=&format=webp&width=1280&height=853",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867172389625948/SM701747.jpg?backend=b2&ex=6ac5b90b&is=6ac4678b&hm=e66f422bdfe1d4b43307090b6989cb3d76457d8486366a9f5db0dce59b221742&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867433002705020/SM701707.jpg?backend=b2&ex=6ac5b949&is=6ac467c9&hm=d5731df2e6df1df71d066cd0eb92f64f53713afcea39ae8c2dc4b5d493d8419f&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867434298740757/SM701706.jpg?backend=b2&ex=6ac5b949&is=6ac467c9&hm=e3c4be95b6701b993f88b797934e7a906822b1b38c096462045124c4da9ea145&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867435574071327/SM701700.jpg?backend=b2&ex=6ac5b949&is=6ac467c9&hm=41d6fc4085200f6b266635ef746def4093555c7cfbb87604e371fee1cbffe9ad&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "https://media.discordapp.net/attachments/898893230928711750/1556867436576243742/SM701699.jpg?backend=b2&ex=6ac5b94a&is=6ac467ca&hm=6be6fffe50a371b812b683620a8c52016cfb1d64ff945071ec4dc7b6ac0e0d9a&=&format=webp&width=512&height=768",
-          alt: "Gallery Image",
-        },
-        {
-          src: "",
-          alt: "Gallery Image",
-        },
-        {
-          src: "",
-          alt: "Gallery Image",
-        },
-      ],
+      loading: true,
+      error: false,
+      images: [],
     };
   },
   computed: {
@@ -188,20 +142,32 @@ export default {
       else window.removeEventListener("keydown", this.onKey);
     },
   },
+  mounted() {
+    this.fetchImages();
+  },
   beforeDestroy() {
     window.removeEventListener("keydown", this.onKey);
   },
   methods: {
-    // ย่อ query ของ CDN ให้เหลือภาพจิ๋วสำหรับ blur placeholder
+    async fetchImages() {
+      this.loading = true;
+      this.error = false;
+      try {
+        const data = await this.$axios.$get(GALLERY_API);
+        this.images = (Array.isArray(data) ? data : []).filter(
+          (item) => item && item.url && item.thumbnail
+        );
+        this.pages = 1;
+      } catch (e) {
+        this.error = true;
+        this.images = [];
+      } finally {
+        this.loading = false;
+      }
+    },
+    // ย่อ thumbnail ของ Drive ให้เหลือภาพจิ๋วสำหรับ blur placeholder
     tiny(src) {
-      return this.resize(src, 16, 24);
-    },
-    // ภาพความละเอียดสูงสำหรับ lightbox (CDN ย่อให้พอดีกรอบ โดยคงสัดส่วนเดิม)
-    full(src) {
-      return this.resize(src, 1600, 1600);
-    },
-    resize(src, w, h) {
-      return src.replace(/width=\d+/, "width=" + w).replace(/height=\d+/, "height=" + h);
+      return src.replace(/sz=w\d+/, "sz=w16");
     },
     showMore() {
       this.pages += 1;
