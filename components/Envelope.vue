@@ -31,7 +31,9 @@
           </div>
           <div class="paper_photo">
             <img :src="photos[0].src" :alt="coupleName" @error="onImgError" />
-            <span class="paper_counter">{{ photos.length }} / {{ photos.length }}</span>
+            <span class="paper_counter"
+              >{{ photos.length }} / {{ photos.length }}</span
+            >
           </div>
         </div>
 
@@ -70,7 +72,9 @@
             class="gallery_img"
             @error="onImgError"
           />
-          <span class="gallery_counter">{{ index + 1 }} / {{ photos.length }}</span>
+          <span class="gallery_counter"
+            >{{ index + 1 }} / {{ photos.length }}</span
+          >
 
           <button
             class="nav_btn nav_prev"
@@ -91,7 +95,9 @@
         </div>
 
         <div class="gallery_foot">
-          <span class="gallery_caption">{{ index + 1 }}. {{ activePhoto.caption }}</span>
+          <span class="gallery_caption"
+            >{{ index + 1 }}. {{ activePhoto.caption }}</span
+          >
           <span class="gallery_dots">
             <button
               v-for="(photo, i) in photos"
@@ -110,20 +116,20 @@
 </template>
 
 <script>
-const FALLBACK_IMG = "/img/main_image.jpg";
+const FALLBACK_IMG = "/img/main_image.webp";
 
 // ວາງຮູບຈິງໄວ້ທີ່ static/img/gallery/01.jpg ... 10.jpg
 const DEFAULT_PHOTOS = [
-  { src: "/img/gallery/01.jpg", caption: "ຮູບຖ່າຍພຣີເວັດດິ້ງຢ່າງເປັນທາງການ" },
-  { src: "/img/gallery/02.jpg", caption: "ມື້ສູ່ຂໍ" },
-  { src: "/img/gallery/03.jpg", caption: "ແຫວນແຕ່ງງານ" },
-  { src: "/img/gallery/04.jpg", caption: "ຊໍ່ດອກໄມ້ເຈົ້າສາວ" },
-  { src: "/img/gallery/05.jpg", caption: "ຮູບຄູ່ກາງແຈ້ງ" },
-  { src: "/img/gallery/06.jpg", caption: "ຊຸດແຕ່ງງານ" },
-  { src: "/img/gallery/07.jpg", caption: "ສະຖານທີ່ຈັດງານ" },
-  { src: "/img/gallery/08.jpg", caption: "ຮູບກັບຄອບຄົວ" },
-  { src: "/img/gallery/09.jpg", caption: "ຮູບກັບໝູ່ເພື່ອນ" },
-  { src: "/img/gallery/10.jpg", caption: "ຄວາມຊົງຈຳທີ່ດີທີ່ສຸດ" },
+  { src: "/img/gallery/01.jpg", caption: "image001" },
+  { src: "/img/gallery/02.jpg", caption: "image002" },
+  { src: "/img/gallery/03.jpg", caption: "image003" },
+  { src: "/img/gallery/04.jpg", caption: "image004" },
+  { src: "/img/gallery/05.jpg", caption: "image005" },
+  { src: "/img/gallery/06.jpg", caption: "image006" },
+  { src: "/img/gallery/07.jpg", caption: "image007" },
+  { src: "/img/gallery/08.jpg", caption: "image008" },
+  { src: "/img/gallery/09.jpg", caption: "image009" },
+  { src: "/img/gallery/10.jpg", caption: "image010" },
 ];
 
 export default {
@@ -413,7 +419,7 @@ $ink: #2d3748;
 .gallery_img {
   display: block;
   width: 100%;
-  height: 380px;
+  // height: 380px;
   object-fit: cover;
 }
 .gallery_counter {
@@ -485,9 +491,9 @@ $ink: #2d3748;
   .envelope {
     height: 240px;
   }
-  .gallery_img {
-    height: 280px;
-  }
+  // .gallery_img {
+  //   height: 280px;
+  // }
   .gallery_couple {
     font-size: 15px;
   }

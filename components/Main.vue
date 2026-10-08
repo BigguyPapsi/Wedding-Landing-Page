@@ -18,7 +18,7 @@
     <div class="img_card">
       <img
         class="img_style"
-        src="../static/img/main_image.jpg"
+        src="../static/img/main_image.webp"
         alt="main_image"
       />
     </div>

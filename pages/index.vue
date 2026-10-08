@@ -3,6 +3,7 @@
     <Main />
     <Envelope />
     <Schedule />
+    <Gallery />
   </div>
 </template>
 
