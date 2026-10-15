@@ -31,6 +31,17 @@
     url(../fonts/GreatVibes-Regular.ttf) format("truetype");
 }
 
+/* ===== Theme palette — ແກ້ສີທັງເວັບໄດ້ຈາກບ່ອນນີ້ບ່ອນດຽວ ===== */
+:root {
+  --brand: #bcd8ee; /* Primary */
+  --brand-rgb: 188, 216, 238; /* Primary ໃນຮູບແບບ rgb ສຳລັບ rgba() */
+  --brand-dark: #a3c7e2; /* Primary ເຂັ້ມຂຶ້ນໜ້ອຍໜຶ່ງ: ເງົາ/ຝາຊອງ */
+  --brand-text: var(--brand); /* ສີຕົວອັກສອນ/ໄອຄອນທີ່ໃຊ້ສີຫຼັກ */
+  --surface: #ffffff; /* Secondary */
+  --ink: #2d3748; /* ສີຕົວອັກສອນຫຼັກ */
+  --muted: #8c8275; /* ສີຕົວອັກສອນຮອງ */
+}
+
 * {
   font-family: "Noto Sans Lao", sans-serif;
 }

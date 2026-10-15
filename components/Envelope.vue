@@ -50,7 +50,7 @@
     <v-dialog
       v-model="dialog"
       max-width="520"
-      overlay-color="#2d3748"
+      overlay-color="var(--ink)"
       overlay-opacity="0.45"
       @keydown.left="prev"
       @keydown.right="next"
@@ -82,7 +82,7 @@
             aria-label="ຮູບກ່ອນໜ້າ"
             @click="prev"
           >
-            <v-icon size="20" color="#2d3748">mdi-chevron-left</v-icon>
+            <v-icon size="20" color="var(--ink)">mdi-chevron-left</v-icon>
           </button>
           <button
             class="nav_btn nav_next"
@@ -90,7 +90,7 @@
             aria-label="ຮູບຕໍ່ໄປ"
             @click="next"
           >
-            <v-icon size="20" color="#2d3748">mdi-chevron-right</v-icon>
+            <v-icon size="20" color="var(--ink)">mdi-chevron-right</v-icon>
           </button>
         </div>
 
@@ -193,13 +193,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$beige: #e8d5bc;
-$beige-dark: #dcc5a6;
-$gold: #c8a562;
-$ink: #2d3748;
 
 .invite_section {
-  background-color: #ffffff;
+  background-color: var(--surface);
   padding: 60px 16px 80px;
 }
 
@@ -208,24 +204,24 @@ $ink: #2d3748;
 }
 .invite_eyebrow {
   font-family: "Great Vibes", cursive !important;
-  color: $gold;
+  color: var(--brand-text);
   font-size: 32px;
   line-height: 1.2;
 }
 .invite_title {
-  color: $ink;
+  color: var(--ink);
   font-size: 34px;
   font-weight: 700;
   margin: 6px 0 8px;
 }
 .invite_sub {
-  color: #8c8275;
+  color: var(--muted);
   font-size: 15px;
 }
 .invite_divider {
   width: 70px;
   height: 2px;
-  background-color: $gold;
+  background-color: var(--brand);
   margin: 12px auto 0;
 }
 
@@ -244,7 +240,7 @@ $ink: #2d3748;
   outline: none;
 }
 .envelope:focus-visible .env_back {
-  box-shadow: 0 0 0 3px rgba(200, 165, 98, 0.6);
+  box-shadow: 0 0 0 3px rgba(var(--brand-rgb), 0.6);
 }
 
 .env_back {
@@ -253,7 +249,7 @@ $ink: #2d3748;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $beige;
+  background-color: var(--brand);
   border-radius: 12px;
   transition: box-shadow 0.25s ease;
 }
@@ -264,7 +260,7 @@ $ink: #2d3748;
   left: 7%;
   right: 7%;
   bottom: 40px;
-  background-color: #ffffff;
+  background-color: var(--surface);
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(45, 55, 72, 0.12);
   overflow: hidden;
@@ -281,13 +277,13 @@ $ink: #2d3748;
   padding: 10px 14px 8px;
 }
 .paper_label {
-  color: $gold;
+  color: var(--brand-text);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
 }
 .paper_close {
-  color: #8c8275;
+  color: var(--muted);
   font-size: 11px;
   border: 1px solid #e3e0da;
   border-radius: 6px;
@@ -312,7 +308,7 @@ $ink: #2d3748;
   top: 8px;
   right: 8px;
   background-color: rgba(45, 55, 72, 0.7);
-  color: #ffffff;
+  color: var(--surface);
   font-size: 11px;
   border-radius: 6px;
   padding: 2px 8px;
@@ -325,7 +321,7 @@ $ink: #2d3748;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $beige;
+  background-color: var(--brand);
   border-radius: 12px;
   clip-path: polygon(0 32%, 50% 92%, 100% 32%, 100% 100%, 0 100%);
   z-index: 3;
@@ -338,7 +334,7 @@ $ink: #2d3748;
   left: 0;
   right: 0;
   height: 62%;
-  background-color: $beige-dark;
+  background-color: var(--brand-dark);
   border-radius: 12px 12px 0 0;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top center;
@@ -359,8 +355,8 @@ $ink: #2d3748;
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background-color: $gold;
-  box-shadow: 0 3px 10px rgba(200, 165, 98, 0.55);
+  background-color: var(--brand-dark);
+  box-shadow: 0 3px 10px rgba(var(--brand-rgb), 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -377,7 +373,7 @@ $ink: #2d3748;
 
 /* ---------- ແກລເລີຣີ ---------- */
 .gallery {
-  background-color: #ffffff;
+  background-color: var(--surface);
   border-radius: 14px;
   padding: 14px;
 }
@@ -389,14 +385,14 @@ $ink: #2d3748;
   padding: 2px 2px 12px;
 }
 .gallery_label {
-  color: $gold;
+  color: var(--brand-text);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   flex: 1;
 }
 .gallery_couple {
-  color: $ink;
+  color: var(--ink);
   font-size: 18px;
   font-weight: 700;
   white-space: nowrap;
@@ -404,7 +400,7 @@ $ink: #2d3748;
 .gallery_close {
   flex: 1;
   text-align: right;
-  color: #8c8275;
+  color: var(--muted);
   font-size: 12px;
   cursor: pointer;
 }
@@ -426,7 +422,7 @@ $ink: #2d3748;
   top: 10px;
   right: 10px;
   background-color: rgba(45, 55, 72, 0.7);
-  color: #ffffff;
+  color: var(--surface);
   font-size: 12px;
   border-radius: 6px;
   padding: 2px 10px;
@@ -480,7 +476,7 @@ $ink: #2d3748;
 .dot--active {
   width: 16px;
   border-radius: 4px;
-  background-color: $gold;
+  background-color: var(--brand);
 }
 
 @media (max-width: 600px) {

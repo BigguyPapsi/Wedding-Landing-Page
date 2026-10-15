@@ -103,34 +103,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gold: #c8a562;
-$ink: #2d3748;
-$muted: #8c8275;
 
 .bg {
   min-height: 750px;
-  background-color: #faf7f2;
+  background-color: var(--surface);
   padding: 0 16px 40px;
   overflow-x: hidden;
 }
 
 .title_text {
-  color: $gold;
-  border-top: 1px solid $gold;
-  border-bottom: 1px solid $gold;
+  color: var(--brand-text);
+  border-top: 1px solid var(--brand);
+  border-bottom: 1px solid var(--brand);
   display: inline-block;
   font-size: clamp(11px, 3.2vw, 16px);
   letter-spacing: 0.5px;
 }
 
 .title_name {
-  color: $ink;
+  color: var(--ink);
   font-family: "Great Vibes", cursive !important;
   font-size: clamp(34px, 9vw, 55px);
   line-height: 1.25;
 
   .amp {
-    color: $gold;
+    color: var(--brand-text);
     font-family: "Great Vibes", cursive !important;
   }
 }
@@ -144,7 +141,7 @@ $muted: #8c8275;
   margin-top: -10px;
 }
 .la_name {
-  color: $ink;
+  color: var(--ink);
   font-size: clamp(15px, 4.5vw, 25px);
 }
 
@@ -185,7 +182,7 @@ $muted: #8c8275;
 }
 .countdown_title {
   text-align: center;
-  color: $muted;
+  color: var(--muted);
   font-size: clamp(13px, 4vw, 16px);
   letter-spacing: 1px;
   margin-bottom: 14px;
@@ -197,21 +194,21 @@ $muted: #8c8275;
   gap: clamp(8px, 2.5vw, 16px);
 }
 .countdown_card {
-  background-color: #ffffff;
+  background-color: var(--surface);
   border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(200, 165, 98, 0.18);
+  box-shadow: 0 2px 10px rgba(var(--brand-rgb), 0.18);
   width: clamp(66px, 20vw, 92px);
   padding: clamp(10px, 2.5vw, 14px) 0 clamp(8px, 2vw, 10px);
   text-align: center;
 }
 .countdown_value {
-  color: $gold;
+  color: var(--brand-text);
   font-size: clamp(24px, 7vw, 34px);
   font-weight: 700;
   line-height: 1.1;
 }
 .countdown_label {
-  color: $muted;
+  color: var(--muted);
   font-size: clamp(12px, 3.2vw, 14px);
   margin-top: 2px;
 }

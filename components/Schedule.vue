@@ -9,19 +9,19 @@
         <v-row>
           <v-col cols="12" sm="6">
             <v-card
-              style="background-color: #faf7f2; border: 1px solid #c8a562"
+              style="background-color: var(--surface); border: 1px solid var(--brand)"
             >
               <v-card-text class="pa-4 pa-sm-6">
                 <div style="display: flex; justify-content: center">
                   <div class="icon_style mb-5">
-                    <v-icon size="45" color="#c8a562">mdi-ring</v-icon>
+                    <v-icon size="45" color="var(--brand-text)">mdi-ring</v-icon>
                   </div>
                 </div>
                 <div style="display: flex; justify-content: center">
-                  <span style="color: #c8a562">ຕອນສວາຍ</span>
+                  <span style="color: var(--brand-text)">ຕອນສວາຍ</span>
                 </div>
                 <div style="text-align: center">
-                  <h2 style="color: #2d3748" class="my-2">ເຮັດຂວັນ, ມັດແຂນ</h2>
+                  <h2 style="color: var(--ink)" class="my-2">ເຮັດຂວັນ, ມັດແຂນ</h2>
                 </div>
                 <div style="display: flex; justify-content: center">
                   <span
@@ -30,7 +30,7 @@
                       align-items: center;
                       justify-content: center;
                     "
-                    ><v-icon color="#c8a562" size="17"
+                    ><v-icon color="var(--brand-text)" size="17"
                       >mdi-clock-time-three-outline</v-icon
                     ></span
                   >
@@ -42,20 +42,20 @@
           </v-col>
           <v-col cols="12" sm="6">
             <v-card
-              style="background-color: #faf7f2; border: 1px solid #c8a562"
+              style="background-color: var(--surface); border: 1px solid var(--brand)"
             >
               <v-card-text class="pa-4 pa-sm-6">
                 <div style="display: flex; justify-content: center">
                   <div class="icon_style mb-5">
-                    <v-icon size="45" color="#c8a562">mdi-glass-wine</v-icon>
+                    <v-icon size="45" color="var(--brand-text)">mdi-glass-wine</v-icon>
                   </div>
                 </div>
                 <div style="display: flex; justify-content: center">
-                  <span style="color: #c8a562">ຕອນແລງ</span>
+                  <span style="color: var(--brand-text)">ຕອນແລງ</span>
                 </div>
                 <div style="text-align: center">
-                  <h2 style="color: #2d3748" class="my-2">
-                    ສັງສັນ, ຮ່ວມຮັບອາຫານແລງ
+                  <h2 style="color: var(--ink)" class="my-2">
+                    ສັງສັນ, ຮ່ວມຮັບປະທານອາຫານແລງ
                   </h2>
                 </div>
                 <div style="display: flex; justify-content: center">
@@ -65,7 +65,7 @@
                       align-items: center;
                       justify-content: center;
                     "
-                    ><v-icon color="#c8a562" size="17"
+                    ><v-icon color="var(--brand-text)" size="17"
                       >mdi-clock-time-three-outline</v-icon
                     ></span
                   >
@@ -77,17 +77,20 @@
           </v-col>
         </v-row>
         <div class="mt-5">
-          <v-card style="background-color: #faf7f2; border: 1px solid #c8a562">
+          <v-card style="background-color: var(--surface); border: 1px solid var(--brand)">
             <v-card-text class="pa-4 pa-sm-6">
               <v-row align="center">
-                <v-col cols="12" md="6" class="venue_info text-center text-md-left">
+                <v-col
+                  cols="12"
+                  md="6"
+                  class="venue_info text-center text-md-left"
+                >
                   <div class="venue_eyebrow">ສະຖານທີ່ຈັດງານ</div>
                   <h2 class="venue_name">Loung Loth Restaurant</h2>
                   <v-btn
                     class="mt-4 map_btn"
                     :block="$vuetify.breakpoint.xsOnly"
-                    color="#c8a562"
-                    dark
+                    color="var(--brand)"
                     depressed
                     rounded
                     href="https://maps.app.goo.gl/7M7amgC3aYxsE6JU8"
@@ -127,14 +130,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gold: #c8a562;
-$ink: #2d3748;
 
 /* breakpoints aligned with Vuetify 2: xs < 600, sm < 960, md < 1264 */
 
 .icon_style {
-  border: 1px solid #c8a562;
-  background-color: #fff;
+  border: 1px solid var(--brand);
+  background-color: var(--surface);
   border-radius: 50%;
   width: 70px;
   height: 70px;
@@ -145,18 +146,18 @@ $ink: #2d3748;
 .invite_divider {
   width: 70px;
   height: 2px;
-  background-color: $gold;
+  background-color: var(--brand);
   margin: 12px auto 0;
 }
 .sub_title {
   text-align: center;
-  color: #8c8275;
+  color: var(--muted);
   font-size: clamp(13px, 3.4vw, 15px);
   padding: 0 16px;
 }
 .title_text {
   text-align: center;
-  color: $ink;
+  color: var(--ink);
   font-size: clamp(22px, 6vw, 34px);
   font-weight: 700;
   line-height: 1.25;
@@ -165,17 +166,17 @@ $ink: #2d3748;
 .invite_eyebrow {
   text-align: center;
   font-family: "Great Vibes", cursive !important;
-  color: $gold;
+  color: var(--brand-text);
   font-size: clamp(24px, 7vw, 32px);
   line-height: 1.2;
 }
 .venue_eyebrow {
-  color: $gold;
+  color: var(--brand-text);
   font-size: clamp(13px, 3.2vw, 14px);
   letter-spacing: 0.5px;
 }
 .venue_name {
-  color: $ink;
+  color: var(--ink);
   font-size: clamp(20px, 5vw, 28px);
   font-weight: 700;
   line-height: 1.3;
@@ -192,7 +193,7 @@ $ink: #2d3748;
   height: 260px;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid $gold;
+  border: 1px solid var(--brand);
   box-shadow: 0 4px 14px rgba(45, 55, 72, 0.12);
 
   iframe {

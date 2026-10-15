@@ -10,7 +10,7 @@
     </div>
     <!-- loading -->
     <v-row v-if="loading" justify="center" class="py-12">
-      <v-progress-circular indeterminate color="#c8a562" size="48" />
+      <v-progress-circular indeterminate color="var(--brand-text)" size="48" />
     </v-row>
 
     <!-- error -->
@@ -51,7 +51,7 @@
             <v-progress-circular
               v-if="!tiles[item.id] || tiles[item.id].status !== 'failed'"
               indeterminate
-              color="#c8a562"
+              color="var(--brand-text)"
               size="26"
               width="2"
             />
@@ -62,7 +62,7 @@
               aria-label="ລອງໂຫຼດຮູບໃໝ່"
               @click.stop="retryThumb(item)"
             >
-              <v-icon color="#c8a562" size="26">mdi-refresh</v-icon>
+              <v-icon color="var(--brand-text)" size="26">mdi-refresh</v-icon>
             </v-btn>
           </div>
         </div>
@@ -77,7 +77,7 @@
         @click="showMore()"
         text
         block
-        color="#c8a562"
+        color="var(--brand-text)"
         style="border-radius: 0px"
         >show more <v-icon right size="20">mdi-chevron-down</v-icon></v-btn
       >
@@ -125,7 +125,7 @@
         <v-progress-circular
           v-if="imgLoading"
           indeterminate
-          color="#c8a562"
+          color="var(--brand-text)"
           size="48"
           class="lightbox_spinner"
         />
@@ -452,8 +452,8 @@ export default {
 }
 
 .show_more_btn {
-  border-color: #c8a562 !important;
-  color: #c8a562 !important;
+  border-color: var(--brand) !important;
+  color: var(--brand-text) !important;
   letter-spacing: 1px;
 }
 
@@ -510,7 +510,7 @@ export default {
 
 .lightbox_close:hover ::v-deep .v-icon,
 .lightbox_nav:hover ::v-deep .v-icon {
-  color: #c8a562;
+  color: var(--brand-text);
 }
 
 .lightbox_counter {
@@ -566,13 +566,13 @@ export default {
 
 .sub_title {
   text-align: center;
-  color: #8c8275;
+  color: var(--muted);
   font-size: clamp(13px, 3.4vw, 15px);
   padding: 0 16px;
 }
 .title_text {
   text-align: center;
-  color: #2d3748;
+  color: var(--ink);
   font-size: clamp(22px, 6vw, 34px);
   font-weight: 700;
   line-height: 1.25;
@@ -581,7 +581,7 @@ export default {
 .invite_eyebrow {
   text-align: center;
   font-family: "Great Vibes", cursive !important;
-  color: #c8a562;
+  color: var(--brand-text);
   font-size: clamp(24px, 7vw, 32px);
   line-height: 1.2;
 }
@@ -589,7 +589,7 @@ export default {
 .invite_divider {
   width: 70px;
   height: 2px;
-  background-color: #c8a562;
+  background-color: var(--brand);
   margin: 12px auto 0;
 }
 </style>

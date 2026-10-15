@@ -32,7 +32,7 @@
         aria-label="ເປີດເມນູ"
         @click="rightDrawer = true"
       >
-        <v-icon color="#2D3748">mdi-menu</v-icon>
+        <v-icon color="var(--ink)">mdi-menu</v-icon>
       </v-btn>
     </div>
 
@@ -196,7 +196,7 @@ export default {
 </script>
 <style scoped>
 .nav {
-  background-color: #fff;
+  background-color: var(--surface);
 
   padding: 8px clamp(12px, 3vw, 20px);
   display: flex;
@@ -215,7 +215,7 @@ export default {
 }
 .navText {
   text-decoration: none;
-  color: #2d3748;
+  color: var(--ink);
   white-space: nowrap;
   font-size: clamp(13px, 1.3vw, 15px);
   position: relative;
@@ -223,7 +223,7 @@ export default {
   transition: color 0.2s ease;
 }
 .navIcon {
-  color: #c8a562;
+  color: var(--brand-text);
   font-family: "Great Vibes", cursive !important;
   font-size: clamp(28px, 7vw, 35px);
   line-height: 1.2;
@@ -235,7 +235,7 @@ export default {
   cursor: default;
 }
 .navText--active {
-  color: #c8a562;
+  color: var(--brand-text);
 }
 .navText--active::after {
   content: "";
@@ -245,31 +245,31 @@ export default {
   bottom: 0;
   height: 2px;
   border-radius: 2px;
-  background-color: #c8a562;
+  background-color: var(--brand);
 }
 
 .drawer_item--active {
-  color: #c8a562 !important;
+  color: var(--brand-text) !important;
   font-weight: 700;
 }
 .drawer_row--active {
-  background-color: rgba(200, 165, 98, 0.12);
+  background-color: rgba(var(--brand-rgb), 0.12);
 }
 .nav_toggle {
   margin-left: auto;
 }
 
 .drawer_head {
-  color: #c8a562;
+  color: var(--brand-text);
   font-family: "Great Vibes", cursive !important;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
   padding: 14px 16px 6px;
-  border-bottom: 1px solid #f0ece4;
+  border-bottom: 1px solid rgba(var(--brand-rgb), 0.45);
 }
 .drawer_item {
-  color: #2d3748;
+  color: var(--ink);
   font-size: 15px;
 }
 </style>
