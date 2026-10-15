@@ -80,18 +80,17 @@ export default {
           title: "ໜ້າຫຼັກ",
           to: "/",
         },
-
         {
-          title: "ບັດເຊີນ & ຮູບພາບ",
+          title: "ບັດເຊີນ",
           to: "/#envelope",
         },
-                {
+        {
           title: "ກຳນົດການ",
           to: "/#schedule",
         },
         {
-          title: "ອາລະບ້ຳພາບ",
-          to: "",
+          title: "ຄັງຮູບພາບ",
+          to: "/#gallery",
         },
         {
           title: "ອວຍພອນ",

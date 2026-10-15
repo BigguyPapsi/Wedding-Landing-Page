@@ -201,7 +201,6 @@ $ink: #2d3748;
 .invite_section {
   background-color: #ffffff;
   padding: 60px 16px 80px;
-  scroll-margin-top: 70px;
 }
 
 .invite_head {

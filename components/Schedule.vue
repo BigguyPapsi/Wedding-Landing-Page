@@ -55,7 +55,7 @@
                 </div>
                 <div style="text-align: center">
                   <h2 style="color: #2d3748" class="my-2">
-                    ສັງສັນ, ກິນເຂົ້າແລງ
+                    ສັງສັນ, ຮ່ວມຮັບອາຫານແລງ
                   </h2>
                 </div>
                 <div style="display: flex; justify-content: center">
