@@ -81,8 +81,12 @@ export default {
           to: "/",
         },
         {
-          title: "ບັດເຊີນ",
+          title: "ຊອງບັດເຊີນ",
           to: "/#envelope",
+        },
+        {
+          title: "ໃບບັດເຊີນ",
+          to: "/#invitation",
         },
         {
           title: "ກຳນົດການ",
@@ -91,10 +95,6 @@ export default {
         {
           title: "ຄັງຮູບພາບ",
           to: "/#gallery",
-        },
-        {
-          title: "ອວຍພອນ",
-          to: "",
         },
       ],
       miniVariant: false,
