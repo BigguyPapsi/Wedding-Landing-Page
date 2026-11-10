@@ -9,19 +9,26 @@
         <v-row>
           <v-col cols="12" sm="6">
             <v-card
-              style="background-color: var(--surface); border: 1px solid var(--brand)"
+              style="
+                background-color: var(--surface);
+                border: 1px solid var(--brand);
+              "
             >
               <v-card-text class="pa-4 pa-sm-6">
                 <div style="display: flex; justify-content: center">
                   <div class="icon_style mb-5">
-                    <v-icon size="45" color="var(--brand-text)">mdi-ring</v-icon>
+                    <v-icon size="45" color="var(--brand-text)"
+                      >mdi-ring</v-icon
+                    >
                   </div>
                 </div>
                 <div style="display: flex; justify-content: center">
                   <span style="color: var(--brand-text)">ຕອນສວາຍ</span>
                 </div>
                 <div style="text-align: center">
-                  <h2 style="color: var(--ink)" class="my-2">ເຮັດຂວັນ, ມັດແຂນ</h2>
+                  <h2 style="color: var(--ink)" class="my-2">
+                    ເຮັດຂວັນ, ມັດແຂນ
+                  </h2>
                 </div>
                 <div style="display: flex; justify-content: center">
                   <span
@@ -35,19 +42,24 @@
                     ></span
                   >
 
-                  <span>11:00 ໂມງ - 17:00 ໂມງ</span>
+                  <span>15:00 ໂມງ - 17:00 ໂມງ</span>
                 </div>
               </v-card-text>
             </v-card>
           </v-col>
           <v-col cols="12" sm="6">
             <v-card
-              style="background-color: var(--surface); border: 1px solid var(--brand)"
+              style="
+                background-color: var(--surface);
+                border: 1px solid var(--brand);
+              "
             >
               <v-card-text class="pa-4 pa-sm-6">
                 <div style="display: flex; justify-content: center">
                   <div class="icon_style mb-5">
-                    <v-icon size="45" color="var(--brand-text)">mdi-glass-wine</v-icon>
+                    <v-icon size="45" color="var(--brand-text)"
+                      >mdi-glass-wine</v-icon
+                    >
                   </div>
                 </div>
                 <div style="display: flex; justify-content: center">
@@ -77,7 +89,12 @@
           </v-col>
         </v-row>
         <div class="mt-5">
-          <v-card style="background-color: var(--surface); border: 1px solid var(--brand)">
+          <v-card
+            style="
+              background-color: var(--surface);
+              border: 1px solid var(--brand);
+            "
+          >
             <v-card-text class="pa-4 pa-sm-6">
               <v-row align="center">
                 <v-col
@@ -130,7 +147,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 /* breakpoints aligned with Vuetify 2: xs < 600, sm < 960, md < 1264 */
 
 .icon_style {
